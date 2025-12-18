@@ -1,209 +1,333 @@
+/* =====================
+   GLOBAL RESET
+===================== */
 *{
-    margin: 0%;
-    padding: 0%;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: gilroy;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
-html,body{
+
+html, body{
     height: 100%;
     width: 100%;
+    background: #f1f1f1;
 }
+
+/* =====================
+   MAIN SCROLL CONTAINER
+===================== */
 #main{
     position: relative;
     overflow: hidden;
+    padding-top: 72px; /* NAV HEIGHT OFFSET */
 }
-#page{
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    background-color: #f1f1f1;
-}
-#page1{
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    background-color: #f1f1f1;
-}
-#page2{
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    background-color: #f1f1f1;
-}
-#page3{
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    background-color: #f1f1f1;
-}
-canvas{
-    position: relative;
-    z-index: 9;
-    max-width: 100vw;
-    max-height: 100vh;
-}
-#loop{
-    display: flex;
-    position: absolute;
-    top: 30%;
-    height: 25%;
-    width: 100%;
-    font-size: 100px;
-    white-space: nowrap;
-    font-family: gilroy;
-}
-#loop>h1{
-    font-weight: 400;
-    animation-name: anim;
-    animation-duration: 15s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-#loop>h1>span{
-    -webkit-text-stroke: 1.2px #000;
-    color: transparent;
-    font-weight: 500;
-}
-@keyframes anim{
-    0%{
-        transform: translateX(0%);
-    }
-    100%{
-        transform: translateX(-100%);
-    }
-}
+
+/* =====================
+   NAVBAR (FIXED & SAFE)
+===================== */
 #nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 72px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 7%;
-    width: 100%;
-    position: fixed;
-    z-index: 99;
-    padding: 0px 20px;
+    padding: 0 20px;
+    background: rgba(241,241,241,0.9);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
 }
-#nav>h3{
-    font-family: gilroy;
-    font-weight: 400;
-    font-size: 22px;
-}
-#nav>button{
-    padding: 10px 20px;
-    border-radius: 50px;
-    background-color: #000;
-    color: #fff;
-    border: none;
-}
-#page>h3{
-    position: absolute;
-    top: 55%;
-    font-family: gilroy;
-    font-weight: 400;
-    color: #7c7c7c;
-    left: 5%;
-}
-#page>h4{
-    position: absolute;
-    top: 62%;
-    left: 25%;
-    font-family: gilroy;
+
+#nav h3{
     font-weight: 500;
-}
-#page1>#right-text{
-    position: absolute;
-    top: 30%;
-    left: 10%;
-}
-#page1>#right-text>h3{
-    font-weight: 400;
-    color: #7c7c7c;
-}
-#page1>#right-text>h1{
-    line-height: 1.5;
-    font-size: 50px;
-}
-#page1>#left-text{
-    position: absolute;
-    top: 50%;
-    right: 10%;
-    text-align: end;
-}
-#page1>#left-text>h1{
-    font-size: 50px;
-    line-height: 1.5;
-}
-#page1>#left-text>h3{
-    color: #7c7c7c;
-    font-weight: 400;
-}
-#page2>#text1{
-    position: absolute;
-    top: 30%;
-    left: 10%;
-}
-#page2>#text1>h3{
-    color: #7c7c7c;
-    font-weight: 400;
-}
-#page2>#text1>h1{
-    font-size: 60px;
-    line-height: 1.5;
-}
-#page2>#text2{
-    position: absolute;
-    top: 55%;
-    right: 10%;
-    text-align: end;
-}
-#page2>#text2>p{
-    color: #7c7c7c;
-    font-weight: 400;
-}
-#page3>#text3{
-    position: absolute;
-    top: 40%;
-    right: 10%;
-    text-align: end;
-}
-#page3>#text3>h3{
-    color: #7c7c7c;
-    font-weight: 400;
-}
-#page3>#text3>h1{
-    font-size: 70px;
-
+    font-size: 20px;
+    letter-spacing: 0.5px;
 }
 
-
-
+/* NAV BUTTONS */
 #nav-buttons{
     display: flex;
     gap: 15px;
 }
 
 #nav-buttons button{
-    padding: 10px 20px;
+    padding: 10px 22px;
     border-radius: 50px;
-    background-color: #000;
+    background: #000;
     color: #fff;
     border: none;
-    font-family: gilroy;
     font-size: 14px;
     cursor: pointer;
+    transition: opacity 0.3s ease;
 }
 
 #nav-buttons button:hover{
     opacity: 0.8;
 }
+
+/* =====================
+   SECTIONS
+===================== */
+#page,
+#page1,
+#page2,
+#page3{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f1f1f1;
+}
+
+/* =====================
+   CANVAS
+===================== */
+canvas{
+    position: relative;
+    z-index: 9;
+    max-width: 100vw;
+    max-height: 100vh;
+    pointer-events: none;
+}
+
+/* =====================
+   HERO LOOP TEXT
+===================== */
+#loop{
+    display: flex;
+    position: absolute;
+    top: 30%;
+    height: 25%;
+    width: 100%;
+    font-size: 96px;
+    white-space: nowrap;
+    font-weight: 300;
+}
+
+#loop h1{
+    animation: anim 15s linear infinite;
+}
+
+#loop span{
+    -webkit-text-stroke: 1px #000;
+    color: transparent;
+    font-weight: 400;
+}
+
+@keyframes anim{
+    0%{ transform: translateX(0); }
+    100%{ transform: translateX(-100%); }
+}
+
+/* =====================
+   HERO TEXT
+===================== */
+#page h3{
+    position: absolute;
+    top: 55%;
+    left: 5%;
+    max-width: 500px;
+    font-size: 16px;
+    color: #7c7c7c;
+}
+
+#page h4{
+    position: absolute;
+    top: 62%;
+    left: 25%;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+/* =====================
+   ABOUT SECTION
+===================== */
+#page1 #right-text{
+    position: absolute;
+    top: 30%;
+    left: 10%;
+}
+
+#page1 #right-text h3{
+    color: #7c7c7c;
+    font-weight: 400;
+}
+
+#page1 #right-text h1{
+    font-size: 50px;
+    line-height: 1.4;
+}
+
+#page1 #left-text{
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    text-align: right;
+}
+
+#page1 #left-text h1{
+    font-size: 50px;
+    line-height: 1.4;
+}
+
+#page1 #left-text h3{
+    color: #7c7c7c;
+    font-weight: 400;
+}
+
+/* =====================
+   SKILLS SECTION
+===================== */
+#page2 #text1{
+    position: absolute;
+    top: 30%;
+    left: 10%;
+}
+
+#page2 #text1 h3{
+    color: #7c7c7c;
+    font-weight: 400;
+}
+
+#page2 #text1 h1{
+    font-size: 60px;
+    line-height: 1.4;
+}
+
+#page2 #text2{
+    position: absolute;
+    top: 55%;
+    right: 10%;
+    text-align: right;
+}
+
+#page2 #text2 p{
+    color: #7c7c7c;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* =====================
+   PROJECTS
+===================== */
+.projects-grid{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.project-card{
+    padding-bottom: 40px;
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.project-card h2{
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.project-card p{
+    max-width: 700px;
+    color: #7c7c7c;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.project-actions{
+    display: flex;
+    gap: 25px;
+}
+
+.project-actions a{
+    font-size: 14px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    position: relative;
+}
+
+.project-actions a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 1px;
+    background: #000;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.project-actions a:hover::after{
+    transform: scaleX(1);
+}
+
+/* =====================
+   README VIEW
+===================== */
+.readme-content{
+    background: #f8f8f8;
+    padding: 30px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* =====================
+   CONTACT FORM
+===================== */
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+    border-color: #000;
+    outline: none;
+}
+
+.btn-solid{
+    width: fit-content;
+    padding: 12px 28px;
+    border-radius: 50px;
+    background: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.btn-outline{
+       width: fit-content;
+    padding: 12px 28px;
+    border-radius: 50px;
+    background: #f1f1f1;
+    color: #000;
+    border: none;
+    cursor: pointer; 
+}
+
 /* =====================
    FOOTER
 ===================== */
 #footer{
-    width: 100%;
     background: #000;
     color: #fff;
     padding: 60px 10% 30px;
-    font-family: gilroy;
 }
 
 .footer-inner{
@@ -213,22 +337,9 @@ canvas{
     gap: 40px;
 }
 
-.footer-left h3{
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-
 .footer-left p{
-    font-size: 14px;
     color: #bdbdbd;
     line-height: 1.6;
-}
-
-.footer-center,
-.footer-right{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
 }
 
 .footer-center a,
@@ -253,134 +364,23 @@ canvas{
 }
 
 /* =====================
-   FOOTER RESPONSIVE
+   RESPONSIVE
 ===================== */
 @media (max-width: 768px){
+    #nav{
+        height: 64px;
+    }
+
+    #main{
+        padding-top: 64px;
+    }
+
+    #loop{
+        font-size: 56px;
+    }
+
     .footer-inner{
         flex-direction: column;
         text-align: center;
     }
-
-    .footer-center,
-    .footer-right{
-        align-items: center;
-    }
-}
-/* =====================
-   PROJECTS SECTION
-===================== */
-
-.projects-grid{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-}
-
-/* Each project feels like text content, not a card */
-.project-card{
-    border-bottom: 1px solid #d6d6d6;
-    padding-bottom: 40px;
-}
-
-/* Project Title */
-.project-card h2{
-    font-size: 36px;
-    font-weight: 400;
-    margin-bottom: 15px;
-}
-
-/* Project Description */
-.project-card p{
-    font-size: 16px;
-    color: #7c7c7c;
-    line-height: 1.7;
-    max-width: 700px;
-    margin-bottom: 20px;
-}
-
-/* Project Link */
-.project-card a{
-    font-size: 14px;
-    text-decoration: none;
-    color: #000;
-    font-weight: 500;
-    position: relative;
-    padding-bottom: 4px;
-}
-
-/* Underline animation like modern portfolios */
-.project-card a::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 1px;
-    background: #000;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-.project-card a:hover::after{
-    transform: scaleX(1);
-}
-
-.readme-content{
-    background: #f8f8f8;
-    padding: 30px;
-    border-radius: 16px;
-    overflow-x: auto;
-    line-height: 1.7;
-    font-size: 14px;
-    color: #333;
-}
-
-.readme-content pre{
-    white-space: pre-wrap;
-    font-family: monospace;
-}
-
-
-/* =====================
-   CONTACT FORM
-===================== */
-
-.contact-form{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 600px;
-}
-
-.contact-form input,
-.contact-form textarea{
-    padding: 14px 18px;
-    border-radius: 12px;
-    border: 1px solid #ddd;
-    font-family: gilroy;
-    font-size: 14px;
-    outline: none;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus{
-    border-color: #000;
-}
-
-.btn-solid{
-    width: fit-content;
-    padding: 12px 28px;
-    border-radius: 50px;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-family: gilroy;
-    font-size: 14px;
-}
-
-.btn-solid:hover{
-    opacity: 0.85;
 }

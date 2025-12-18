@@ -39,7 +39,7 @@ if (!is_array($repos)) {
                 Read More
             </a>
 
-            <a href="<?= htmlspecialchars($repo['html_url']) ?>" target="_blank" class="btn-solid">
+            <a href="<?= htmlspecialchars($repo['html_url']) ?>" target="_blank" class="btn-solid" style="color:#fff;">
                 GitHub ↗
             </a>
         </div>
