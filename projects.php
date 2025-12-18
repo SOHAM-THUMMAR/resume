@@ -13,6 +13,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+<div id="mouse-glow"></div>
+<script>
+const glow = document.getElementById("mouse-glow");
+
+let mouseX = 0, mouseY = 0;
+let glowX = 0, glowY = 0;
+
+window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
+
+function animateGlow(){
+    glowX += (mouseX - glowX) * 0.18;
+    glowY += (mouseY - glowY) * 0.18;
+
+    glow.style.left = glowX + "px";
+    glow.style.top = glowY + "px";
+
+    requestAnimationFrame(animateGlow);
+}
+
+animateGlow();
+</script>
 
 <?php include "includes/nav.php"; ?>
 

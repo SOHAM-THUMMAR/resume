@@ -23,15 +23,23 @@ if (!is_array($repos)) {
 
 <div class="projects-grid">
 <?php foreach ($repos as $repo): ?>
-    <?php if ($repo['fork']) continue; ?>
+
+    <?php
+        // Ignore forked repos
+        if ($repo['fork']) continue;
+
+        // Ignore SOHAM-THUMMAR profile repo
+        if (strcasecmp($repo['name'], 'SOHAM-THUMMAR') === 0) continue;
+    ?>
 
     <div class="project-card">
+
         <h2><?= htmlspecialchars($repo['name']) ?></h2>
 
         <p>
-        <?= $repo['description']
-            ? htmlspecialchars($repo['description'])
-            : "no descriptions found." ?>
+            <?= $repo['description']
+                ? htmlspecialchars($repo['description'])
+                : "No description provided for this project." ?>
         </p>
 
         <div class="project-actions">
@@ -39,10 +47,12 @@ if (!is_array($repos)) {
                 Read More
             </a>
 
-            <a href="<?= htmlspecialchars($repo['html_url']) ?>" target="_blank" class="btn-solid" style="color:#fff;">
+            <a href="<?= htmlspecialchars($repo['html_url']) ?>" target="_blank" class="btn-solid">
                 GitHub ↗
             </a>
         </div>
+
     </div>
+
 <?php endforeach; ?>
 </div>
