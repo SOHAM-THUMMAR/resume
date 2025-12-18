@@ -11,16 +11,16 @@
         </div>
 
         <div class="footer-center">
-            <a href="index.php">Home</a>
-            <a href="projects.php">Projects</a>
-            <a href="contact.php">Contact</a>
-            <a href="PDFs/resume.pdf" download>Resume</a>
+            <a href="index.php">•Home</a><br>
+            <a href="projects.php">•Projects</a><br>
+            <a href="contact.php">•Contact</a><br>
+            <a href="PDFs/resume.pdf" download>•Resume</a><br>
         </div>
 
         <div class="footer-right">
-            <a href="https://github.com/SOHAM-THUMMAR" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/soham-thummar" target="_blank">LinkedIn</a>
-            <a href="mailto:sohamthummar04@gmail.com">Email</a>
+            <a href="https://github.com/SOHAM-THUMMAR" target="_blank">•GitHub</a><br>
+            <a href="https://www.linkedin.com/in/soham-thummar" target="_blank">•LinkedIn</a><br>
+            <a href="mailto:sohamthummar04@gmail.com">•Email</a><br>
         </div>
 
     </div>
